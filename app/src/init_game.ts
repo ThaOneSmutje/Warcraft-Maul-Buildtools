@@ -18,14 +18,14 @@ export class InitGame {
     }
 
     public static run(): void {
-        require('app/src/LuaModules/TimerUtils'); // non leaking timers
+        require('app.src.LuaModules.TimerUtils'); // non leaking timers
         // require('app/src/LuaModules/PolledWait'); // proper wait
-        require('app/src/LuaModules/FastTriggers'); // 16x faster triggers
+        require('app.src.LuaModules.FastTriggers'); // 16x faster triggers
         PatchNatives();
         Log.Init([
-            new StringSink(LogLevel.Warning, SendMessageUnlogged),
-            // new PreloadSink(LogLevel.Message, `WCMAUL\\${os.time()}.txt`),
-        ]);
+                     new StringSink(LogLevel.Warning, SendMessageUnlogged),
+                     // new PreloadSink(LogLevel.Message, `WCMAUL\\${os.time()}.txt`),
+                 ]);
         const creepAbilityHandler: CreepAbilityHandler = this.SetupAbilities();
         // const mmd: MMD = new MMD();
 
